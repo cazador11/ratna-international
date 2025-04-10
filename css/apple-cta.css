@@ -1,0 +1,143 @@
+/* Apple Design Language CTA Section
+   Following Human Interface Guidelines (HIG) principles */
+
+.apple-cta-section {
+  padding: 48px 0;
+  margin: 32px 0;
+}
+
+.apple-cta-container {
+  background: linear-gradient(135deg, #0071e3, #0077ed);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.apple-cta-content {
+  padding: 48px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* Typography - SF Pro style */
+.apple-headline {
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  color: #ffffff;
+}
+
+.apple-subheadline {
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: -0.003em;
+  line-height: 1.5;
+  opacity: 0.9;
+  margin-bottom: 16px;
+  max-width: 600px;
+}
+
+/* Button group with proper spacing */
+.apple-button-group {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+/* Apple-style buttons */
+.apple-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  height: 44px;
+  gap: 8px;
+}
+
+.apple-button-primary {
+  background-color: #ffffff;
+  color: #007aff;
+}
+
+.apple-button-primary:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  transform: translateY(-1px);
+}
+
+.apple-button-secondary {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.apple-button-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+.apple-button-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  position: relative;
+}
+
+/* Accessibility focus states */
+.apple-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.3);
+}
+
+/* Subtle feedback animation */
+.apple-button:active {
+  transform: scale(0.98);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .apple-cta-content {
+    padding: 32px;
+  }
+  
+  .apple-headline {
+    font-size: 28px;
+  }
+  
+  .apple-button-group {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .apple-button {
+    width: 100%;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .apple-cta-container {
+    background: linear-gradient(135deg, #0071e3, #0055cc);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  }
+}

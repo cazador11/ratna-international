@@ -1,0 +1,2126 @@
+/* 
+* Ratna International Tours and Travels Website
+* Redesigned with Apple HIG-inspired principles
+*/
+
+/* Hide scrollbars while maintaining scroll functionality - Apple style */
+html, body {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    overflow-y: auto;
+}
+
+/* Hide webkit scrollbars */
+::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    background: transparent;
+}
+
+/* Hide scrollbars on elements with overflow */
+.overflow-auto, .overflow-y-auto, .overflow-x-auto, .overflow-scroll,
+.navbar-collapse, .dropdown-menu, .modal-body, .accordion-body {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.overflow-auto::-webkit-scrollbar, 
+.overflow-y-auto::-webkit-scrollbar, 
+.overflow-x-auto::-webkit-scrollbar,
+.overflow-scroll::-webkit-scrollbar,
+.navbar-collapse::-webkit-scrollbar, 
+.dropdown-menu::-webkit-scrollbar, 
+.modal-body::-webkit-scrollbar,
+.accordion-body::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    background: transparent;
+}
+
+/* Color System */
+:root {
+    --primary: #0071e3; /* Apple-inspired blue */
+    --primary-dark: #0051a2;
+    --secondary: #34c759; /* Apple-inspired green */
+    --secondary-dark: #248a3d;
+    --neutral-50: #fafafa;
+    --neutral-100: #f5f5f7;
+    --neutral-200: #e5e5ea;
+    --neutral-300: #d1d1d6;
+    --neutral-400: #c7c7cc;
+    --neutral-500: #aeaeb2;
+    --neutral-600: #8e8e93;
+    --neutral-700: #636366;
+    --neutral-800: #3a3a3c;
+    --neutral-900: #1c1c1e;
+    --success: #34c759;
+    --error: #ff3b30;
+    --warning: #ff9500;
+    --info: #007aff;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+    --transition: all 0.25s cubic-bezier(0.28, 0.44, 0.49, 1);
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+    --radius-xl: 18px;
+}
+
+/* Typography System */
+body {
+    /* Use standard system font stack */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: var(--neutral-900);
+    line-height: 1.5;
+    background-color: #fff;
+    font-size: 16px;
+    overflow-x: hidden;
+    width: 100%;
+    text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    /* Use standard system font stack (can often inherit from body, but specified here for clarity) */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-weight: 600;
+    letter-spacing: -0.021em;
+    color: var(--neutral-900);
+    margin-bottom: 0.5em;
+    line-height: 1.1;
+}
+
+h1 {
+    font-size: 2.75rem;
+    letter-spacing: -0.022em;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2.25rem;
+    letter-spacing: -0.021em;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1.75rem;
+}
+
+h4 {
+    font-size: 1.375rem;
+}
+
+h5 {
+    font-size: 1.125rem;
+}
+
+h6 {
+    font-size: 1rem;
+}
+
+@media (max-width: 991.98px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    h2 {
+        font-size: 2rem;
+    }
+    h3 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    h1 {
+        font-size: 2rem;
+    }
+    h2 {
+        font-size: 1.75rem;
+    }
+    h3 {
+        font-size: 1.35rem;
+    }
+    h4 {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    h1 {
+        font-size: 1.75rem;
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
+}
+
+p {
+    margin-bottom: 1.5rem;
+    color: var(--neutral-700);
+}
+
+.lead {
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: var(--neutral-700);
+    line-height: 1.5;
+}
+
+/* Spacing System */
+section {
+    padding: 80px 0;
+}
+
+@media (max-width: 767px) {
+    section {
+        padding: 60px 0;
+    }
+}
+
+.section-header {
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.section-header p {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Links & Buttons */
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--primary-dark);
+}
+
+.btn {
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.625rem 1.25rem;
+    border-radius: var(--radius-sm);
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.5;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+    min-height: 44px; /* Apple's minimum touch target size */
+    letter-spacing: -0.01em;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: white;
+    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    transform: scale(0.98);
+}
+
+.btn-primary:active {
+    transform: scale(0.96);
+    background-color: #005fbd;
+}
+
+.btn-success {
+    background-color: var(--secondary);
+    color: white;
+    box-shadow: 0 0 0 0 rgba(52, 199, 89, 0);
+}
+
+.btn-success:hover {
+    background-color: var(--secondary-dark);
+    transform: scale(0.98);
+}
+
+.btn-success:active {
+    transform: scale(0.96);
+    background-color: #1f9a42;
+}
+
+.btn-outline-primary {
+    background-color: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+}
+
+.btn-outline-primary:hover {
+    background-color: rgba(0, 113, 227, 0.05);
+    color: var(--primary);
+}
+
+.btn-outline-primary:active {
+    background-color: rgba(0, 113, 227, 0.1);
+    transform: scale(0.98);
+}
+
+.btn i {
+    margin-right: 0.5rem;
+}
+
+/* Header & Navigation */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    transition: background-color 0.3s cubic-bezier(0.28, 0.44, 0.49, 1);
+}
+
+.navbar {
+    padding: 0.75rem 0;
+    transition: padding 0.3s ease;
+}
+
+.navbar-brand img {
+    max-height: 48px;
+    transition: var(--transition);
+    width: auto;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: var(--neutral-800);
+    font-weight: 500;
+    padding: 0.75rem 1rem;
+    position: relative;
+    transition: var(--transition);
+    white-space: normal;
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link.active {
+    color: var(--primary);
+}
+
+.navbar-light .navbar-nav .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0.5rem;
+    left: 1rem;
+    right: 1rem;
+    height: 2px;
+    background-color: var(--primary);
+    border-radius: 2px;
+}
+
+.dropdown-menu {
+    border: none;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.05); /* iOS menu shadow */
+    border-radius: 14px; /* iOS menu corner radius */
+    padding: 0.5rem;
+    min-width: 220px;
+    margin-top: 0.5rem;
+    backdrop-filter: blur(20px) saturate(180%); /* iOS frosted glass effect */
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.dropdown-item {
+    padding: 0.75rem 1rem;
+    font-weight: 450; /* Apple medium weight */
+    color: var(--neutral-800);
+    border-radius: 8px; /* iOS menu item corner radius */
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    margin: 2px 0;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+    background-color: var(--neutral-100);
+    color: var(--primary);
+}
+
+/* Hero Section */
+.hero-section {
+    background-color: white;
+    padding: 120px 0 60px; /* More generous spacing */
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(135deg, rgba(245, 247, 250, 0.3) 0%, rgba(245, 247, 250, 0) 70%);
+    z-index: 0;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-section h1 {
+    margin-bottom: 1.25rem;
+    color: var(--neutral-900);
+    font-weight: 700;
+    letter-spacing: -0.025em; /* Apple-style tight letter spacing */
+    line-height: 1.1; /* Tighter line height for headings */
+}
+
+.hero-section .lead {
+    margin-bottom: 2.5rem;
+    max-width: 540px;
+    color: var(--neutral-700);
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+@media (max-width: 991.98px) {
+    .hero-section .lead {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.trust-badges {
+    margin-top: 2rem;
+}
+
+.trust-badges .badge {
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+    margin-right: 0.75rem;
+    margin-bottom: 0.75rem;
+    border-radius: var(--radius-sm);
+    background-color: var(--neutral-100);
+    color: var(--neutral-700);
+    border: none;
+}
+
+.hero-section img {
+    border-radius: 24px; /* iOS-style rounded corners */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08); /* More refined shadow */
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Services Section */
+.services-section {
+    background-color: var(--neutral-50);
+    position: relative;
+    overflow: hidden;
+    padding: 100px 0 80px;
+}
+
+/* Page Header - Apple HIG Style */
+.page-header {
+    background-color: rgba(250, 250, 250, 0.8);
+    padding: 3rem 0 2.5rem;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.page-header h1 {
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.75rem;
+    color: var(--primary);
+}
+
+.page-header .breadcrumb {
+    background: transparent;
+    margin-bottom: 0;
+    padding: 0;
+    font-size: 0.95rem;
+}
+
+.page-header .breadcrumb-item + .breadcrumb-item::before {
+    content: '/';
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.page-header .breadcrumb-item a {
+    color: var(--neutral-600);
+    text-decoration: none;
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.page-header .breadcrumb-item a:hover {
+    color: var(--primary);
+}
+
+.page-header .breadcrumb-item.active {
+    color: var(--neutral-500);
+    font-weight: 450;
+}
+
+.services-section::before {
+    content: '';
+    position: absolute;
+    top: -150px;
+    right: -150px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, var(--neutral-200) 0%, rgba(245, 245, 247, 0) 70%);
+    border-radius: 50%;
+    opacity: 0.5;
+    z-index: 0;
+}
+
+/* Service Description - Apple HIG Style */
+.service-description {
+    padding: 4rem 0;
+    margin-bottom: 1rem;
+}
+
+.service-description h2 {
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    color: var(--neutral-900);
+}
+
+.service-description .lead {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--neutral-700);
+    margin-bottom: 1.5rem;
+}
+
+.service-description p {
+    color: var(--neutral-700);
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.service-description img {
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.highlight-item {
+    background-color: rgba(0, 0, 0, 0.02);
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.highlight-item:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+    transform: translateY(-2px);
+}
+
+.highlight-item i {
+    font-size: 1rem;
+    color: var(--primary);
+}
+
+.highlight-item span {
+    font-weight: 450;
+    color: var(--neutral-800);
+}
+
+/* Visa Types Section - Apple HIG Style */
+.visa-types-section {
+    padding: 4rem 0;
+    background-color: rgba(249, 249, 249, 0.8);
+}
+
+.visa-types-section .section-header {
+    margin-bottom: 3rem;
+}
+
+.visa-types-section .section-header h2 {
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    color: var(--neutral-900);
+}
+
+.visa-types-section .section-header .lead {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--neutral-700);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.visa-types-section .card {
+    border-radius: 20px;
+    overflow: hidden;
+    border: none;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.visa-types-section .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+.visa-types-section .card-body {
+    padding: 2rem;
+}
+
+.visa-icon {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    color: var(--primary);
+    background-color: rgba(0, 122, 255, 0.1);
+    border-radius: 16px;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.visa-icon i {
+    font-size: 1.8rem;
+}
+
+.visa-types-section .card:hover .visa-icon {
+    background-color: var(--primary);
+    color: white;
+    transform: scale(1.05);
+}
+
+.visa-types-section .card h3 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--neutral-900);
+    letter-spacing: -0.01em;
+}
+
+.visa-types-section .card p {
+    color: var(--neutral-700);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.visa-types-section .card ul li {
+    color: var(--neutral-700);
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+}
+
+.visa-types-section .card ul li i {
+    color: var(--primary);
+    font-size: 0.8rem;
+    margin-right: 0.75rem;
+}
+
+/* Process Section - Apple HIG Style */
+.process-section {
+    padding: 5rem 0;
+    background-color: white;
+}
+
+.process-section .section-header {
+    margin-bottom: 3.5rem;
+}
+
+.process-section .section-header h2 {
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    color: var(--neutral-900);
+}
+
+.process-section .section-header .lead {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--neutral-700);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.process-timeline {
+    position: relative;
+    padding: 1rem 0;
+}
+
+.process-step {
+    background-color: white;
+    border-radius: 24px;
+    padding: 2rem;
+    height: 100%;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.process-step:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.step-number {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 122, 255, 0.3);
+}
+
+.step-content {
+    text-align: center;
+}
+
+.step-content h4 {
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    color: var(--neutral-900);
+    letter-spacing: -0.01em;
+}
+
+.step-content p {
+    color: var(--neutral-700);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+/* Country-Specific Section - Apple HIG Style */
+.country-section {
+    padding: 5rem 0;
+    background-color: rgba(249, 249, 249, 0.8);
+}
+
+.country-section .section-header {
+    margin-bottom: 3rem;
+}
+
+.country-section .section-header h2 {
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    color: var(--neutral-900);
+}
+
+.country-section .section-header .lead {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--neutral-700);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.country-card {
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    padding: 2rem;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    background-color: white;
+}
+
+.country-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.country-flag {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 1.25rem;
+    padding: 0.5rem 1rem;
+    background-color: rgba(0, 0, 0, 0.02);
+    border-radius: 12px;
+}
+
+.country-card h4 {
+    font-weight: 600;
+    font-size: 1.35rem;
+    margin-bottom: 1.25rem;
+    color: var(--neutral-900);
+    letter-spacing: -0.01em;
+}
+
+.checklist-item {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: flex-start;
+    color: var(--neutral-700);
+    font-size: 0.95rem;
+}
+
+.checklist-item:last-child {
+    margin-bottom: 0;
+}
+
+.checklist-item i {
+    color: var(--primary);
+    font-size: 0.85rem;
+    margin-right: 0.75rem;
+    margin-top: 0.25rem;
+}
+
+.country-section .text-center p {
+    margin-top: 2.5rem;
+    color: var(--neutral-700);
+    font-size: 1rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem 2rem;
+    background-color: rgba(0, 122, 255, 0.05);
+    border-radius: 12px;
+    display: inline-block;
+}
+
+/* FAQ Section - Apple HIG Style */
+.faq-section {
+    padding: 5rem 0;
+    background-color: white;
+}
+
+.faq-section .section-header {
+    margin-bottom: 3.5rem;
+}
+
+.faq-section .section-header h2 {
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    color: var(--neutral-900);
+}
+
+.faq-section .section-header .lead {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--neutral-700);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.accordion-item {
+    border-radius: 16px !important;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+    margin-bottom: 1rem;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.accordion-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+}
+
+.accordion-button {
+    padding: 1.5rem 1.75rem;
+    font-weight: 500;
+    font-size: 1.05rem;
+    color: var(--neutral-900);
+    background-color: white;
+    border: none;
+    box-shadow: none !important;
+}
+
+.accordion-button:not(.collapsed) {
+    color: var(--primary);
+    background-color: rgba(0, 122, 255, 0.03);
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+    border-color: transparent;
+}
+
+.accordion-button::after {
+    width: 1.25rem;
+    height: 1.25rem;
+    background-size: 1.25rem;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.accordion-body {
+    padding: 1rem 1.75rem 1.75rem;
+    color: var(--neutral-700);
+    font-size: 1rem;
+    line-height: 1.6;
+    background-color: white;
+}
+
+/* CTA Section - Apple HIG Style */
+.cta-section {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, var(--primary) 0%, #0077CC 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cx="2" cy="2" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+    opacity: 0.25;
+}
+
+.cta-section h2 {
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.75rem;
+    color: white;
+}
+
+.cta-section .lead {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 400;
+}
+
+.cta-section .btn-light {
+    background-color: white;
+    color: var(--primary);
+    font-weight: 500;
+    border: none;
+    border-radius: 12px;
+    padding: 0.75rem 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.cta-section .btn-light:hover {
+    background-color: #f8f9fa;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.cta-section .btn-success {
+    background-color: #25D366;
+    color: white;
+    font-weight: 500;
+    border: none;
+    border-radius: 12px;
+    padding: 0.75rem 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.cta-section .btn-success:hover {
+    background-color: #22c55e;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.service-card {
+    background-color: white;
+    border: none;
+    border-radius: 20px; /* iOS-style corner radius */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04); /* Subtle, refined shadow */
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Apple's animation curve */
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px; /* Slightly thinner for Apple's refined look */
+    background: var(--primary); /* Solid color instead of gradient - more Apple-like */
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.service-card:hover {
+    transform: translateY(-3px); /* More subtle movement */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06); /* Refined shadow on hover */
+}
+
+.service-card:hover::after {
+    opacity: 1;
+}
+
+.service-card .card-body {
+    padding: 2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-icon {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    font-size: 1.5rem;
+    background-color: rgba(0, 122, 255, 0.1); /* iOS-style tint */
+    border-radius: 14px; /* SF Symbols style corner radius */
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.service-card:hover .service-icon {
+    background-color: var(--primary);
+    color: white;
+    transform: scale(1.02);
+}
+
+.service-card h4 {
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: var(--neutral-900);
+    font-size: 1.25rem;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+}
+
+.service-card p {
+    margin-bottom: 1.5rem;
+    color: var(--neutral-700);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.service-card .btn {
+    margin-top: auto;
+    align-self: flex-start;
+    padding: 0.5rem 1.25rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+/* Why Choose Us Section */
+.why-choose-us {
+    background-color: white;
+    position: relative;
+    overflow: hidden;
+    padding: 100px 0;
+}
+
+@media (max-width: 767.98px) {
+    .why-choose-us {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .why-choose-us {
+        padding: 40px 0;
+    }
+}
+
+.why-choose-us::after {
+    content: '';
+    position: absolute;
+    bottom: -150px;
+    left: -150px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, var(--neutral-200) 0%, rgba(245, 245, 247, 0) 70%);
+    border-radius: 50%;
+    opacity: 0.5;
+    z-index: 0;
+}
+
+.feature-box {
+    background-color: var(--neutral-50);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    height: 100%;
+    padding: 2.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--neutral-200);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.feature-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background-color: var(--primary);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.feature-box:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.feature-box:hover::before {
+    opacity: 1;
+}
+
+.feature-icon {
+    width: 58px;
+    height: 58px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    font-size: 1.5rem;
+    background-color: white;
+    border-radius: 16px;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+}
+
+.feature-box:hover .feature-icon {
+    background-color: var(--primary);
+    color: white;
+    transform: rotate(5deg);
+}
+
+.feature-box h4 {
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: var(--neutral-900);
+    font-size: 1.25rem;
+    letter-spacing: -0.01em;
+}
+
+.feature-box p {
+    color: var(--neutral-700);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+    background-color: var(--neutral-50);
+    position: relative;
+    overflow: hidden;
+    padding: 90px 0;
+}
+
+.testimonials-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.5;
+    z-index: 0;
+}
+
+.testimonial-card {
+    background-color: white;
+    border: 1px solid var(--neutral-200);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    padding: 2rem;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.testimonial-content {
+    position: relative;
+    padding: 0.5rem 0 1.5rem 0;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--neutral-200);
+    font-style: italic;
+    color: var(--neutral-700);
+}
+
+.testimonial-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    position: relative;
+    margin-bottom: 0;
+}
+
+.testimonial-content p::before,
+.testimonial-content p::after {
+    content: '\201C';
+    font-size: 1.5rem;
+    color: var(--primary);
+    font-family: serif;
+    line-height: 0;
+    position: relative;
+}
+
+.testimonial-content p::after {
+    content: '\201D';
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    margin-top: auto;
+}
+
+.testimonial-author-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 1rem;
+    object-fit: cover;
+    border: 2px solid var(--neutral-200);
+}
+
+.testimonial-author-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.testimonial-author-name {
+    font-weight: 600;
+    color: var(--neutral-900);
+    margin-bottom: 0.25rem;
+    font-size: 1rem;
+}
+
+.testimonial-author-title {
+    font-size: 0.875rem;
+    color: var(--neutral-600);
+    margin-bottom: 0.5rem;
+}
+
+.testimonial-rating {
+    display: flex;
+    color: #ffb400;
+    font-size: 0.875rem;
+}
+
+.testimonial-rating i {
+    margin-right: 2px;
+}
+
+/* CTA Section */
+.cta-section {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white;
+    border-radius: var(--radius-lg);
+    margin: 40px 0;
+    padding: 70px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+    border-radius: 50%;
+    transform: translate(50%, -50%);
+}
+
+.cta-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 70%);
+    border-radius: 50%;
+    transform: translate(-30%, 30%);
+}
+
+.cta-section h2 {
+    color: white;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    letter-spacing: -0.02em;
+}
+
+.cta-section p {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.cta-section .btn-light {
+    background-color: white;
+    color: var(--primary);
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    min-width: 160px;
+    border-radius: var(--radius-sm);
+}
+
+.cta-section .btn-light:hover {
+    background-color: var(--neutral-50);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cta-section .btn-outline-light {
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    background-color: transparent;
+    padding: 0.75rem 1.5rem;
+    min-width: 160px;
+    margin-left: 1rem;
+    backdrop-filter: blur(4px);
+}
+
+.cta-section .btn-outline-light:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: white;
+    transform: translateY(-2px);
+}
+
+.cta-section .btn i {
+    margin-right: 0.5rem;
+}
+
+@media (max-width: 767px) {
+    .cta-section {
+        text-align: center;
+        padding: 60px 0;
+    }
+    
+    .cta-section .btn-outline-light {
+        margin-left: 0;
+        margin-top: 1rem;
+    }
+    
+    .cta-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+}
+
+/* Footer */
+.footer {
+    background-color: var(--neutral-900);
+    color: white;
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+}
+
+.footer-main {
+    padding: 80px 0 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom {
+    padding: 25px 0;
+}
+
+.footer-logo {
+    max-height: 45px;
+    margin-bottom: 1.5rem;
+    filter: brightness(0) invert(1);
+}
+
+.footer-brand p {
+    color: var(--neutral-400);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 300px;
+}
+
+.footer h5 {
+    color: white;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    font-size: 1.125rem;
+    letter-spacing: -0.01em;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-links ul li a {
+    color: var(--neutral-300); /* Slightly brighter for better contrast */
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Apple's animation curve */
+    font-size: 0.95rem;
+    display: inline-block;
+    position: relative;
+    padding-left: 0;
+    font-weight: 400; /* Apple's regular weight */
+    letter-spacing: -0.01em; /* Subtle letter-spacing adjustment */
+}
+
+.footer-links ul li a:hover {
+    color: white;
+    padding-left: 4px; /* Slightly more subtle movement */
+    opacity: 0.9; /* Apple-style subtle hover state */
+}
+
+.contact-info {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-info li {
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: flex-start;
+    color: var(--neutral-300); /* Better contrast */
+    font-size: 0.95rem;
+    line-height: 1.5; /* Improved readability */
+}
+
+.contact-info li i {
+    color: rgba(255, 255, 255, 0.8); /* More subtle, Apple-like icon treatment */
+    font-size: 0.9rem;
+    margin-right: 0.9rem;
+    margin-top: 0.3rem;
+    opacity: 0.85; /* Subtle transparency for icons */
+}
+
+.contact-info li a {
+    color: var(--neutral-400);
+    transition: var(--transition);
+}
+
+.contact-info li a:hover {
+    color: white;
+}
+
+.social-links {
+    display: flex;
+    margin-top: 1.75rem;
+    flex-wrap: wrap;
+    gap: 12px; /* Modern spacing system */
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    margin-right: 12px;
+    color: white;
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    background-color: var(--primary);
+    transform: translateY(-3px);
+}
+
+.footer-bottom p {
+    color: var(--neutral-500);
+    margin-bottom: 0;
+    font-size: 0.875rem;
+}
+
+.legal-links {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: flex-end;
+}
+
+.legal-links a {
+    color: var(--neutral-500);
+    font-size: 0.875rem;
+    transition: var(--transition);
+}
+
+.legal-links a:hover {
+    color: white;
+}
+
+@media (max-width: 991.98px) {
+    .footer-main {
+        padding: 60px 0 30px;
+    }
+    
+    .footer-brand,
+    .footer-links {
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .footer-bottom {
+        text-align: center;
+    }
+    
+    .footer-bottom .row > div {
+        margin-bottom: 1rem;
+    }
+    
+    .legal-links {
+        justify-content: center;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    h1 {
+        font-size: 2.25rem;
+    }
+    
+    h2 {
+        font-size: 1.875rem;
+    }
+    
+    .navbar-collapse {
+        background-color: white;
+        padding: 1rem;
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-lg);
+        margin-top: 1rem;
+    }
+    
+    .hero-section {
+        padding: 80px 0 40px;
+    }
+}
+
+@media (max-width: 767px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    section {
+        padding: 60px 0;
+    }
+    
+    .section-header {
+        margin-bottom: 40px;
+    }
+}
+
+/* Animation utilities */
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Accessibility improvements */
+:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Core Responsive Classes */
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+.contact-info li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.contact-info li i {
+    margin-top: 5px;
+    width: 20px;
+}
+
+/* Footer */
+.footer {
+    background-color: #212529;
+}
+
+.footer h5 {
+    color: #fff;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.footer ul li {
+    margin-bottom: 10px;
+}
+
+.footer a {
+    color: #fff;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.footer a:hover {
+    opacity: 1;
+    color: #fff;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.social-links a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Contact Page */
+.contact-form .form-control {
+    border-radius: 5px;
+    border: 1px solid #e0e0e0;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+}
+
+.contact-form .form-control:focus {
+    box-shadow: none;
+    border-color: #0056b3;
+}
+
+.contact-card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.contact-info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.contact-info-item i {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 86, 179, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0056b3;
+    margin-right: 15px;
+}
+
+/* Service Detail Pages */
+.process-step {
+    text-align: center;
+    position: relative;
+    padding-bottom: 30px;
+}
+
+.process-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 30px;
+    background-color: #0056b3;
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    background-color: #0056b3;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.step-content {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.checklist-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.checklist-item i {
+    color: #0056b3;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+/* Responsive Styles */
+@media (max-width: 1199.98px) {
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+    .service-card .service-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    .feature-box .feature-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        background-color: #fff;
+        padding: 15px;
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-md);
+        margin-top: 15px;
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 12px 20px;
+    }
+    
+    .navbar-nav .dropdown-menu {
+        border: none;
+        box-shadow: none;
+        padding-left: 20px;
+        background-color: var(--neutral-50);
+        border-radius: var(--radius-sm);
+    }
+    
+    .ms-lg-4 {
+        margin-top: 15px !important;
+    }
+    
+    .hero-section {
+        padding: 60px 0;
+    }
+    
+    .hero-content {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    
+    .hero-content .btn {
+        margin-bottom: 10px;
+    }
+    
+    .row.g-4 > [class*="col-"] {
+        margin-bottom: 20px;
+    }
+    
+    .service-card {
+        height: auto;
+    }
+    
+    .footer-logo {
+        margin-bottom: 20px;
+    }
+    
+    .footer-links, .footer-contact {
+        margin-top: 30px;
+    }
+    
+    .feature-box {
+        margin-bottom: 30px;
+    }
+    
+    .cta-section {
+        text-align: center;
+    }
+    
+    .cta-section .btn-light, .cta-section .btn-outline-light {
+        margin: 10px;
+    }
+}
+
+@media (max-width: 767px) {
+    section {
+        padding: 40px 0;
+    }
+    
+    .navbar-brand img {
+        max-height: 40px;
+    }
+    
+    .hero-section {
+        padding: 40px 0;
+    }
+    
+    .section-header {
+        margin-bottom: 30px;
+    }
+    
+    .lead {
+        font-size: 1rem;
+    }
+    
+    .trust-badges .badge {
+        margin-bottom: 10px;
+    }
+    
+    .service-card, .testimonial-card, .feature-box {
+        margin-bottom: 20px;
+    }
+    
+    .footer-main {
+        padding: 40px 0 20px;
+    }
+    
+    .social-links {
+        justify-content: center;
+        margin-top: 20px;
+    }
+    
+    .footer-bottom {
+        text-align: center;
+    }
+    
+    .footer-bottom .legal-links {
+        justify-content: center;
+        margin-top: 10px;
+    }
+    
+    .ms-lg-4 .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    section {
+        padding: 30px 0;
+    }
+    
+    .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.95rem;
+    }
+    
+    .hero-section {
+        padding: 30px 0;
+    }
+    
+    .navbar {
+        padding: 0.5rem 0;
+    }
+    
+    .navbar-brand img {
+        max-height: 36px;
+    }
+    
+    .testimonial-card {
+        padding: 1.5rem;
+    }
+    
+    .testimonial-avatar {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .service-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.25rem;
+    }
+    
+    .footer h5 {
+        margin-bottom: 15px;
+    }
+    
+    .contact-info li i {
+        font-size: 0.9rem;
+    }
+    
+    .social-links a {
+        width: 32px;
+        height: 32px;
+        font-size: 0.9rem;
+    }
+}
+
+/* CTA Section - Apple HIG Style */
+.cta-section {
+    padding: 60px 0;
+}
+
+.cta-container {
+    background: linear-gradient(135deg, var(--primary) 0%, #0051a2 100%);
+    box-shadow: 0 12px 30px rgba(0, 113, 227, 0.15);
+    color: white;
+    overflow: hidden;
+    position: relative;
+}
+
+.cta-container h2 {
+    color: white;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+}
+
+.cta-container .lead {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.2rem;
+    max-width: 500px;
+}
+
+.cta-container .btn-primary {
+    background-color: white;
+    color: var(--primary);
+    border: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.cta-container .btn-primary:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cta-container .btn-success {
+    background-color: var(--secondary);
+    border: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.cta-container .btn-success:hover {
+    background-color: #2db84d;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cta-image-container {
+    background: url('../images/visa-pattern.png') no-repeat center center;
+    background-size: cover;
+    min-height: 300px;
+}
+
+.cta-pattern-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 113, 227, 0.3) 0%, rgba(0, 81, 162, 0.6) 100%);
+    z-index: 1;
+}
+
+@media (max-width: 991.98px) {
+    .cta-container {
+        text-align: center;
+    }
+    
+    .cta-container .lead {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .cta-container .d-flex {
+        justify-content: center;
+    }
+}
+
+/* Animation Classes */
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
+}
+
+.slide-in-right {
+    animation: slideInRight 1s ease-in-out;
+}
+
+.slide-in-left {
+    animation: slideInLeft 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInRight {
+    from { transform: translateX(50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInLeft {
+    from { transform: translateX(-50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* Service Card and Feature Box Icons - Apple HIG Style */
+.service-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    background-color: rgba(0, 113, 227, 0.1);
+    border-radius: 16px;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.service-icon i {
+    font-size: 1.75rem;
+    color: var(--primary);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.service-card:hover .service-icon {
+    background-color: var(--primary);
+    transform: scale(1.05);
+}
+
+.service-card:hover .service-icon i {
+    color: white;
+}
+
+.feature-icon {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    background-color: rgba(0, 113, 227, 0.1);
+    border-radius: 50%;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.feature-icon i {
+    font-size: 1.75rem;
+    color: var(--primary);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.feature-box:hover .feature-icon {
+    background-color: var(--primary);
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 113, 227, 0.25);
+}
+
+.feature-box:hover .feature-icon i {
+    color: white;
+}
+
+/* Add SF Pro Display typography enhancements for service and feature titles */
+.service-card h4, .feature-box h4 {
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.75rem;
+    color: var(--neutral-900);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.service-card:hover h4, .feature-box:hover h4 {
+    color: var(--primary);
+}
+
+/* Enhance paragraph text for better readability */
+.service-card p, .feature-box p {
+    color: var(--neutral-700);
+    line-height: 1.6;
+    font-size: 1rem;
+}
